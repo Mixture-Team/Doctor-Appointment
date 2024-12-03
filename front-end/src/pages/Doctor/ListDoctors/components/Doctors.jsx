@@ -9,10 +9,10 @@ export default function Doctors({ item }) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {item.map((doctor) => (
                     <DoctorCard
-                        key={doctor.id}
-                        name={doctor.name}
-                        imageUrl={doctor.imageUrl}
-                        specialty={doctor.specialty}
+                        key={doctor.doctor_id}
+                        name={doctor.doctor_name}
+                        imageUrl={require(`../../../../${doctor.doctor_image}`)}
+                        specialty={doctor.specialization_name}
                     />
                 ))}
             </div>
@@ -23,10 +23,10 @@ export default function Doctors({ item }) {
 Doctors.propTypes = {
     item: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            name: PropTypes.string.isRequired,
-            imageUrl: PropTypes.string.isRequired,
-            specialty: PropTypes.string.isRequired
+            doctor_id: PropTypes.string.isRequired,
+            doctor_name: PropTypes.string.isRequired,
+            doctor_image: PropTypes.string.isRequired,
+            specialization_name: PropTypes.string.isRequired
         })
     ).isRequired
 };
